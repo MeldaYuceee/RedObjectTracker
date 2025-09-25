@@ -25,7 +25,7 @@ while True:
 
     for cnt in contours:
         area = cv2.contourArea(cnt)
-        if area > 1000:  # ignore small areas
+        if area > 1000: 
             x, y, w, h = cv2.boundingRect(cnt)
             cx = x + w // 2
             cy = y + h // 2
@@ -43,3 +43,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
