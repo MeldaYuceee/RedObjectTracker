@@ -1,51 +1,43 @@
-# 🎯 Color-Based Object Tracking
+# Color-Based Object Tracking – Real-Time Red Detection
 
-## Overview
-This project allows you to track **red objects** in real-time using your computer's camera.  
-It detects the object, draws a rectangle around it, and shows its **center coordinates** and **size** on the screen.  
-The program is written using **Python** and **OpenCV**, designed to be simple and beginner-friendly, ideal for a student-level project.
+> **Domain:** Computer Vision / Image Processing  
+> **Level:** Beginner (Student R&D)  
+> **Purpose:** Demonstrate color-based object tracking in a real-time camera stream using Python and OpenCV
 
-## Features
-- Detects red objects in real-time.
-- Draws a green rectangle around each detected object.
-- Displays the object's **center coordinates** (x, y) and **width x height**.
-- Shows a mask view highlighting the detected red areas.
-- Simple, clear, and easy to understand code for learning purposes.
+---
 
-## How It Works
-1. The camera feed is captured frame by frame.
-2. Each frame is converted from BGR to HSV color space for better color detection.
-3. A mask is created to detect red color in two HSV ranges.
-4. Noise in the mask is removed using morphological operations.
-5. Contours of the masked areas are found to locate the objects.
-6. For each sufficiently large contour:
-   - A rectangle is drawn around the object.
-   - The object's center coordinates and size are displayed above the rectangle.
-7. Two windows are displayed:
-   - **Camera**: shows the live feed with rectangles and coordinates.
-   - **Mask**: shows the detected red areas in white on a black background.
+## 1. Background & Concept
+Color detection is a common technique in introductory computer vision, providing a clear way to learn frame processing, color space conversions and basic contour operations.  
+This project builds a minimal real-time object tracking system focused on detecting red regions and drawing bounding boxes around them.
 
-## Installation
-1. Make sure you have Python 3 installed.
-2. Install the required libraries:
+---
+
+## 2. Features
+- Real-time red object detection  
+- Bounding box with center coordinates  
+- Object dimensions displayed (width × height)  
+- Mask visualization window  
+- Simple OpenCV-based implementation  
+- Beginner-friendly code and structure  
+
+---
+
+## 3. How It Works
+1. Capture live video frames from the webcam  
+2. Convert each frame from BGR to HSV  
+3. Create a binary mask using two HSV red ranges  
+4. Apply morphological operations to remove noise  
+5. Extract contours from the mask  
+6. For sufficiently large regions:
+   - draw rectangle
+   - show coordinates and size  
+
+Two windows are displayed:
+- **Camera** – bounding boxes and coordinates  
+- **Mask** – detected red regions
+
+---
+
+## 4. Installation
 ```bash
 pip install -r requirements.txt
-
-1.Run the program:
-python main.py
-
-2.Show a red object in front of your camera.
-
-3.Observe the rectangle, coordinates, and size displayed on the video.
-
-4.Press q to quit the program.
-
-### Files
-main.py → Main program that captures camera feed and tracks objects.
-requirements.txt → Contains necessary Python packages.
-README.md → Project explanation and instructions.
-
- ### Notes
-The program ignores very small red areas to reduce noise.
-You can adjust the HSV red ranges in the code if needed.
-Works best with well-lit environments.
